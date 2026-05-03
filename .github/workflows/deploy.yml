@@ -3,7 +3,7 @@ name: Deploy to Firebase Hosting (Production)
 on:
   push:
     branches:
-      - main
+      - master
 
 concurrency:
   group: firebase-deploy-${{ github.ref }}
@@ -54,9 +54,6 @@ jobs:
         run: pnpm build
 
       - name: Deploy to Firebase Hosting
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-          channelId: live
-          projectId: blog-studio-orionn
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        run: pnpm dlx firebase-tools@15.15.0 deploy --only hosting --project blog-studio-orionn --non-interactive --token "$FIREBASE_TOKEN"

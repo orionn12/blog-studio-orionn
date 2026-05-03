@@ -3,7 +3,7 @@ name: Deploy to Firebase Hosting (Preview)
 on:
   pull_request:
     branches:
-      - main
+      - master
 
 concurrency:
   group: firebase-preview-${{ github.event.pull_request.number }}
@@ -55,9 +55,6 @@ jobs:
         run: pnpm build
 
       - name: Deploy to Firebase Hosting (Preview)
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-          projectId: blog-studio-orionn
-          # Omitting channelId lets the action create a preview channel for the PR.
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        run: pnpm dlx firebase-tools@15.15.0 hosting:channel:deploy pr-${{ github.event.pull_request.number }} --project blog-studio-orionn --expires 7d --non-interactive --token "$FIREBASE_TOKEN"
