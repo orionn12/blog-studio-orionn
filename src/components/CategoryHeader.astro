@@ -1,0 +1,32 @@
+---
+import { Icon } from "astro-icon/components";
+import type { CategorySlug } from "@constants/categories";
+import { CATEGORIES } from "@constants/categories";
+
+interface Props {
+	slug: CategorySlug;
+	postCount: number;
+}
+
+const { slug, postCount } = Astro.props;
+const cat = CATEGORIES[slug];
+---
+
+<div
+	class="category-header card-base flex items-center gap-4 px-8 py-6 mb-4 rounded-[var(--radius-large)] onload-animation"
+	style={`--cat-hue: ${cat.hue};`}
+>
+	<div class="cat-icon-wrap flex items-center justify-center w-14 h-14 rounded-xl text-2xl shrink-0"
+		style="background: oklch(0.55 0.2 var(--cat-hue)); color: white;"
+	>
+		<Icon name={cat.icon} />
+	</div>
+	<div>
+		<h1 class="text-2xl font-bold text-90" style="color: oklch(0.55 0.2 var(--cat-hue));">
+			{cat.label}
+		</h1>
+		<p class="text-sm text-black/50 dark:text-white/50 mt-0.5">
+			{postCount} 件の記事
+		</p>
+	</div>
+</div>
