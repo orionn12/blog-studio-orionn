@@ -1,4 +1,4 @@
-import { CATEGORIES } from "@constants/categories";
+import { normalizeCategorySlug } from "@constants/categories";
 import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 
@@ -30,9 +30,9 @@ export function getCategoryUrl(category: string | null): string {
 	)
 		return url("/archive/?uncategorized=true");
 
-	const slug = category.trim().toLowerCase();
-	if (slug in CATEGORIES) {
-		return url(`/${slug}/`);
+	const normalizedSlug = normalizeCategorySlug(category);
+	if (normalizedSlug) {
+		return url(`/${normalizedSlug}/`);
 	}
 
 	return url(`/archive/?category=${encodeURIComponent(category.trim())}`);
