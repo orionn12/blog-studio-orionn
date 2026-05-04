@@ -1,9 +1,18 @@
-# About
-This is the demo site for [Fuwari](https://github.com/saicaca/fuwari).
+# このブログについて
 
-::github{repo="saicaca/fuwari"}
+IT系の仕事をしながら、AIを使ったプログラミングを毎日楽しんでいます。
 
-> ### Sources of images used in this site
-> - [Unsplash](https://unsplash.com/)
-> - [星と少女](https://www.pixiv.net/artworks/108916539) by [Stella](https://www.pixiv.net/users/93273965)
-> - [Rabbit - v1.4 Showcase](https://civitai.com/posts/586908) by [Rabbit_YourMajesty](https://civitai.com/user/Rabbit_YourMajesty)
+コードを書くこと自体が趣味になっていて、新しいツールや技術を試すのが日課です。  
+このブログでは、日々の中で出会った「使えるもの・面白いもの」を自分の視点で紹介しています。
+
+## 書いていること
+
+- **プログラミング** — AIを活用した開発・ツール・環境構築など
+- **ガジェット** — 実際に使って良かったデバイス・周辺機器のレビュー
+- **サブスク** — 便利なサービスの紹介と使い込んだ正直な感想
+- **トラベル** — 旅先で見つけた場所・体験・お得情報
+
+## このブログについて
+
+気になったものをじっくり使ってから書く、という姿勢を大切にしています。  
+広告収入より「実際に役立つかどうか」を優先した発信を続けています。

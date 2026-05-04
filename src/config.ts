@@ -56,9 +56,9 @@ export const navBarConfig: NavBarConfig = {
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar: "assets/images/demo-avatar.png",
+	avatar: "assets/images/profile-avatar.png",
 	name: "orionn",
-	bio: "プログラミング・ガジェット・サブスク・旅について書いています。",
+	bio: "IT系の仕事をしながら、毎日AIとコードを書くのが趣味。プログラミング・ガジェット・サブスク・トラベルについて語ります。",
 	links: [
 		{
 			name: "GitHub",
