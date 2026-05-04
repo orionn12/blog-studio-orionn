@@ -1,12 +1,12 @@
 ---
 title: "半年間愛用中！Anker Power Bank (30W, Fusion) 5000mAhモデルを使ってみて"
 published: 2025-07-13
-updated: 2025-07-13
+updated: 2026-05-04
 draft: false
-description: "皆さん、こんにちは！今日は私が半年間毎日使っている、とっても便利なモバイルバッテリー、Anker Power Bank (30W, Fusion, Built-In USB-C ケーブル) 5000mAhモデルについて、 [&helli"
+description: "皆さん、こんにちは！今日は私が半年間毎日使っている、とっても便利なモバイルバッテリー、Anker Power Bank (30W, Fusion, Built-In USB-C ケーブル) 5000mAhモデルのレビューです。"
 image: "/images/wp-import/anker-power-bank-fusion-5000-review/A1636-main.webp"
-tags: ["Anker","モバイルバッテリー","USB充電器","レビュー"]
-category: "ガジェット"
+tags: ["Anker", "モバイル"]
+category: ガジェット
 lang: "ja"
 ---
 皆さん、こんにちは！今日は私が半年間毎日使っている、とっても便利なモバイルバッテリー、**Anker Power Bank (30W, Fusion, Built-In USB-C ケーブル)** **5000mAh**モデルについて、率直なレビューをお届けしたいと思います。

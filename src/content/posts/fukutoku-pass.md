@@ -1,6 +1,7 @@
 ---
 title: ふくとくパスについて
 published: 2026-05-04
+updated: 2026-05-04
 description: ふくとくパスに関する詳細な解説記事です。
 category: サブスク
 tags: ["ふくとくパス"]

@@ -1,12 +1,12 @@
 ---
 title: "Cursor + Python 開発環境構築について！"
 published: 2026-03-18
-updated: 2026-03-20
+updated: 2026-05-04
 draft: false
-description: "巷では、AIエディタが熱いようですね！ 備忘録もかねて開発環境を整えるための手順をまとめます。環境構築は順序を間違えるとぐじゃぐじゃになると思いますので参考にしてみてください。 ちなみに私はJupyter Noteboo [&helli"
+description: "AIエディタCursorとPythonを組み合わせた、現代的な開発環境の構築手順を解説します。"
 image: "/images/wp-import/cursor-python-dev-environment/unnamed-2.jpg"
-tags: ["Cursor","Python","開発環境","プログラミング"]
-category: "プログラミング"
+tags: ["Cursor", "Python"]
+category: プログラミング
 lang: "ja"
 ---
 巷では、AIエディタが熱いようですね！
