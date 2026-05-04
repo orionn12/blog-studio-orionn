@@ -62,6 +62,8 @@ export type NavBarConfig = {
 
 export type ProfileConfig = {
 	avatar?: string;
+	avatarLight?: string;
+	avatarDark?: string;
 	name: string;
 	bio?: string;
 	links: {

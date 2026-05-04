@@ -5,6 +5,9 @@ import { url } from "../../utils/url-utils";
 import ImageWrapper from "../misc/ImageWrapper.astro";
 
 const config = profileConfig;
+const avatarLight = config.avatarLight || config.avatar || "";
+const avatarDark = config.avatarDark || config.avatar || "";
+const hasThemeAvatars = Boolean(config.avatarLight && config.avatarDark);
 ---
 <div class="card-base p-3">
     <a aria-label="Go to About Page" href={url('/about/')}
@@ -16,7 +19,14 @@ const config = profileConfig;
                   class="transition opacity-0 scale-90 group-hover:scale-100 group-hover:opacity-100 text-white text-5xl">
             </Icon>
         </div>
-        <ImageWrapper src={config.avatar || ""} alt="Profile Image of the Author" class="mx-auto lg:w-full h-full lg:mt-0 "></ImageWrapper>
+        {hasThemeAvatars ? (
+            <>
+                <ImageWrapper src={avatarLight} alt="Profile Image of the Author" class="mx-auto lg:w-full h-full lg:mt-0 dark:hidden"></ImageWrapper>
+                <ImageWrapper src={avatarDark} alt="Profile Image of the Author" class="hidden mx-auto lg:w-full h-full lg:mt-0 dark:block"></ImageWrapper>
+            </>
+        ) : (
+            <ImageWrapper src={config.avatar || ""} alt="Profile Image of the Author" class="mx-auto lg:w-full h-full lg:mt-0 "></ImageWrapper>
+        )}
     </a>
     <div class="px-2">
         <div class="font-bold text-xl text-center mb-1 dark:text-neutral-50 transition">{config.name}</div>
@@ -36,4 +46,3 @@ const config = profileConfig;
         </div>
     </div>
 </div>
-
