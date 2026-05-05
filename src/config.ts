@@ -65,12 +65,12 @@ export const profileConfig: ProfileConfig = {
 		{
 			name: "GitHub",
 			icon: "fa6-brands:github",
-			url: "https://github.com",
+			url: "https://github.com/orionn12",
 		},
 		{
 			name: "X (Twitter)",
 			icon: "fa6-brands:x-twitter",
-			url: "https://x.com",
+			url: "https://x.com/tgjL72cBvHHoRcw",
 		},
 	],
 };
