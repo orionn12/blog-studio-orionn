@@ -4,7 +4,7 @@ published: 2026-05-04
 updated: 2026-05-04
 description: Audibleを3年間愛用して分かった、生活を豊かにするメリットと気になるデメリットをレビューします。
 category: サブスク
-tags: ["Audible", "オーデ"]
+tags: ["Audible"]
 ---
 
 Audibleを3年間使ってみた感想を詳しく紹介します。

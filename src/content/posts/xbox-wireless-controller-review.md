@@ -5,7 +5,7 @@ updated: 2026-05-04
 draft: false
 description: "ゲームを愛するゲーマーの皆様、こんにちは！ 今回は、私の愛用している、「Xbox ワイヤレス コントローラー」について、その魅力や特徴を徹底レビューしていきたいと思います。"
 image: "/images/wp-import/xbox-wireless-controller-review/xbox1.jpg"
-tags: ["Xbox", "コント"]
+tags: ["Xbox"]
 category: ガジェット
 lang: "ja"
 ---
