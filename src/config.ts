@@ -60,7 +60,7 @@ export const profileConfig: ProfileConfig = {
 	avatarLight: "assets/images/profile-avatar-light.png",
 	avatarDark: "assets/images/profile-avatar.png",
 	name: "orionn",
-	bio: "IT系の仕事をしながら、毎日AIとコードを書くのが趣味。プログラミング・ガジェット・サブスク・トラベルについて語ります。",
+	bio: "IT系の仕事をしながら、ほぼ毎日AIと一緒にプログラミングするのが趣味。プログラミング・ガジェット・サブスク・トラベルについて語ります。",
 	links: [
 		{
 			name: "GitHub",
