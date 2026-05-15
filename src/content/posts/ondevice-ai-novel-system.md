@@ -8,7 +8,7 @@ category: プログラミング
 lang: "ja"
 ---
 
-どうもorionnです、初投稿になります。
+どうもorionnです。
 
 オンデバイスAIでシミュレーションゲームを構築してみた話です。
 
@@ -29,25 +29,67 @@ PCだけで完結する、選択肢式ビジュアルノベルの自動生成シ
 
 将来的に商用公開を想定しているため、すべてのモデルを商用利用可能なライセンスで構成しています。
 
-## 実装で工夫した点（かんたんに）
+![実際の生成シーン（ミステリー / 夢の森）](/images/ondevice-ai-novel/demo-scene.png)
 
-技術的な詳細は[Zennの記事](https://zenn.dev/orionn/articles/8a8751dafa4028)にまとめているので、ここではポイントだけ。
+## 実装で工夫した点
 
-### 推論モデルの「考え中テキスト」を除去
+### 1. `<think>` ブロックの除去
 
-qwen3は出力前に `<think>...</think>` という内部思考を吐き出します。
+qwen3などの推論系モデルは、出力の前に `<think>...</think>` という内部思考を吐き出します。
 これをそのまま表示するとノベルとして破綻するため、正規表現で除去しています。
-地味ですがここが一番ハマりポイントでした。
 
-### 日本語→英語の二段階パイプライン
+```js
+function stripThinking(text) {
+  const value = String(text ?? "");
+  const closed = value.replace(/<think>[\s\S]*?<\/think>/gi, "");
+  if (/<think>/i.test(closed)) return "";
+  const titleIndex = closed.search(/タイトル\s*:/);
+  if (titleIndex >= 0) return closed.slice(titleIndex).trim();
+  // 英語の思考漏れも除去
+  if (/^\s*(Okay|Sure|Let me|We need)/i.test(closed)) return "";
+  return closed.trim();
+}
+```
 
-日本語で生成したストーリーをそのままStable Diffusionに渡しても精度が出ないため、
-**LLMでストーリー生成 → LLMで英語画像プロンプトに変換 → 画像生成**という二段階にしています。
+「閉じタグがない場合は空文字を返す」という処理が地味に重要で、
+これがないとモデルが途中で止まったときに思考途中の文章が表示されます。
 
-### キャラクター外見の固定
+### 2. LLMで画像プロンプトを書き直す二段階パイプライン
+
+日本語で生成したストーリーをそのままStable Diffusionに渡しても、
+日本語を理解できないため精度が下がります。
+
+そこで **LLM → LLM → 画像モデル** という二段階にしました。
+
+1. qwen3でストーリーを日本語生成
+2. qwen3に「このシーンを英語の画像プロンプトに変換して」と頼む
+3. 変換後のプロンプトをbk-sdm-tinyに渡す
+
+```js
+// プロンプトの品質チェック（ゴミ出力を弾く）
+function isUsefulVisualPrompt(text) {
+  const value = String(text ?? "").trim();
+  if (value.length < 40) return false;
+  const asciiLetters = value.match(/[A-Za-z]/g)?.length ?? 0;
+  return asciiLetters >= 20;
+}
+```
+
+変換失敗時はストーリー本文を直接プロンプトとして使うフォールバックも実装しています。
+
+### 3. キャラクター外見の固定
 
 選択肢を進むたびに主人公の見た目が変わると没入感が壊れます。
-毎回の画像生成に「この外見を維持せよ」という情報を混ぜることで一貫性を保っています。
+`visualMemory` という構造体にジャンル・世界観・主人公の外見情報を蓄積し、
+毎回の画像生成プロンプトに「この外見を維持せよ」と混ぜています。
+
+```js
+const sourcePrompt = [
+  "Preserve the fixed protagonist appearance from Visual memory exactly.",
+  "Do not change hair, clothing, age, or silhouette.",
+  ...
+].join("\n");
+```
 
 ## ライセンス選定について
 
