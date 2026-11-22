@@ -1,7 +1,7 @@
 export const CATEGORIES = {
 	programming: {
 		slug: "programming",
-		label: "プログラミング",
+		label: "開発",
 		icon: "fa6-solid:code",
 		hue: 220,
 	},
@@ -34,6 +34,8 @@ export function normalizeCategorySlug(raw: string | null | undefined): CategoryS
 	const lower = trimmed.toLowerCase() as CategorySlug;
 	if (lower in CATEGORIES) return lower;
 
+	// 旧ラベル（「プログラミング」→「開発」に改名）も受け付ける
+	if (trimmed === "プログラミング") return "programming";
 	for (const [slug, cat] of Object.entries(CATEGORIES)) {
 		if (cat.label === trimmed) return slug as CategorySlug;
 	}

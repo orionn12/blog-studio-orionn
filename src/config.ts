@@ -9,7 +9,7 @@ import { LinkPreset } from "./types/config";
 
 export const siteConfig: SiteConfig = {
 	title: "studio orionn",
-	subtitle: "プログラミング・ガジェット・サブスク・旅",
+	subtitle: "ゲーム開発・ガジェット・サブスク・旅",
 	lang: "ja",
 	themeColor: {
 		hue: 240,
@@ -35,7 +35,7 @@ export const siteConfig: SiteConfig = {
 export const navBarConfig: NavBarConfig = {
 	links: [
 		{
-			name: "プログラミング",
+			name: "開発",
 			url: "/programming/",
 		},
 		{
@@ -60,7 +60,7 @@ export const profileConfig: ProfileConfig = {
 	avatarLight: "assets/images/profile-avatar-light.png",
 	avatarDark: "assets/images/profile-avatar.png",
 	name: "orionn",
-	bio: "IT系の仕事をしながら、ほぼ毎日AIと一緒にプログラミングするのが趣味。プログラミング・ガジェット・サブスク・トラベルについて語ります。",
+	bio: "IT系の仕事をしながら、AIを使って開発活動中。空き時間はすべて趣味のゲーム開発に使っています。福岡県内でゲーム開発関連の仕事への転職を目指しています。",
 	links: [
 		{
 			name: "GitHub",

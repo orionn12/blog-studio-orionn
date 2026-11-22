@@ -6,7 +6,7 @@ draft: false
 description: "AIエディタCursorとPythonを組み合わせた、現代的な開発環境の構築手順を解説します。"
 image: "/images/wp-import/cursor-python-dev-environment/unnamed-2.jpg"
 tags: ["Cursor", "Python"]
-category: プログラミング
+category: programming
 lang: "ja"
 ---
 巷では、AIエディタが熱いようですね！

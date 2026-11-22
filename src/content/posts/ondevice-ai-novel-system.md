@@ -4,7 +4,7 @@ published: 2026-05-15
 draft: false
 description: "オンデバイスAIでシミュレーションゲームを構築してみた話。Ollama + Stable Diffusionをフル活用してPCだけで動く選択肢式ビジュアルノベルを1週間弱で作りました。"
 tags: ["Ollama", "LocalAI", "個人開発", "LLM", "StableDiffusion"]
-category: プログラミング
+category: programming
 lang: "ja"
 ---
 

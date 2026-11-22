@@ -2,7 +2,7 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import { getCategoryUrl } from "@utils/url-utils.ts";
-import { normalizeCategorySlug } from "@constants/categories";
+import { CATEGORIES, normalizeCategorySlug } from "@constants/categories";
 
 // // Retrieve posts and sort them by publication date
 async function getRawSortedPosts() {
@@ -107,15 +107,18 @@ export async function getCategoryList(): Promise<Category[]> {
 			return;
 		}
 
-		const categoryName =
+		const raw =
 			typeof post.data.category === "string"
 				? post.data.category.trim()
 				: String(post.data.category).trim();
+		// スラッグ表記とラベル表記を同じ分類として数える
+		const slug = normalizeCategorySlug(raw);
+		const categoryName = slug ? CATEGORIES[slug].label : raw;
 
 		count[categoryName] = count[categoryName] ? count[categoryName] + 1 : 1;
 	});
 
-	const CATEGORY_ORDER = ["プログラミング", "ガジェット", "サブスク", "トラベル"];
+	const CATEGORY_ORDER = ["開発", "ガジェット", "サブスク", "トラベル"];
 	const lst = Object.keys(count).sort((a, b) => {
 		const indexA = CATEGORY_ORDER.indexOf(a);
 		const indexB = CATEGORY_ORDER.indexOf(b);
